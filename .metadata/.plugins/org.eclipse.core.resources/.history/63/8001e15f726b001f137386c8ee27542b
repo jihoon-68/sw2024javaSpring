@@ -1,0 +1,12 @@
+package com.constudy.myapp.module;
+
+import java.util.List;
+
+
+
+public class MemoDAO {
+
+	private List<Memo> memos;
+	
+	private int nextId;
+}

@@ -1,0 +1,39 @@
+package com.constudy.myapp.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.constudy.myapp.module.Memo;
+import com.constudy.myapp.module.MemoDAO;
+
+
+@Controller
+public class memoController {
+	
+	private final MemoDAO memoDAO;
+	
+	public memoController(MemoDAO memoDAO) {
+		this.memoDAO = memoDAO;
+	}
+	
+	@GetMapping("/")
+	public String listMemos(Model model) {
+		model.addAttribute(memoDAO.getAllMemos());
+		return "index";
+	} 
+	
+	@GetMapping("detail")
+	public String detailMemos(Model model) {
+		model.addAttribute(memoDAO.getAllMemos());
+		return "detail";
+	}
+	
+	@PostMapping("/add")
+	public String addMemo(Memo memo) {
+		memoDAO.addMemo(memo);
+		return "redirect:/";
+	}
+}

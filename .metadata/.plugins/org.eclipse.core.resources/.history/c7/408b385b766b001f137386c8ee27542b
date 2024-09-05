@@ -1,0 +1,53 @@
+package com.constudy.myapp.module;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+
+public class MemoDAO {
+
+	private List<Memo> memos;
+	
+	private int nextId;
+	
+	public MemoDAO() {
+		memos = new ArrayList<Memo>();
+		
+		nextId =1;
+		
+		for(int i=0; i< 5; i++) {
+			addMemo(new Memo("메모"+i,"메모"+i));
+		}
+	}
+	
+	public List<Memo> getAllMemos(){
+		System.out.println("getAllMemmos()");
+		return memos;
+	}
+	
+	public Memo getMemoById (int id) {
+		for(Memo memo: memos) {
+			if(memo.getId() == id) {
+				return memo;
+			}
+		}
+		return null;
+	}
+	
+	public void addMemo(Memo memo) {
+		memo.setId(nextId++);
+		memos.add(memo);
+	}
+	
+	public void updateMemo(Memo updateMemo) {
+		
+		for(int i =0; i< memos.size(); i++) {
+			if(memos.get(i).getId() == updateMemo.getId()) {
+				
+			}
+		}
+		
+	}
+	
+}

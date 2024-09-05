@@ -1,0 +1,56 @@
+package com.constudy.myapp.module;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+
+@Repository
+public class MemoDAO {
+
+	private List<Memo> memos = new ArrayList<Memo>();
+	
+	private int nextId;
+	
+	public MemoDAO() {
+		memos = new ArrayList<Memo>();
+		
+		nextId =1;
+		
+		for(int i=0; i< 5; i++) {
+			addMemo(new Memo("메모"+i,"메모"+i));
+		}
+	}
+	
+	public List<Memo> getAllMemos(){
+		System.out.println("getAllMemmos()");
+		return memos;
+	}
+	
+	public Memo getOneMemo (int id) {
+		for(Memo memo: memos) {
+			if(memo.getId() == id) {
+				return memo;
+			}
+		}
+		return null;
+	}
+	
+	public void addMemo(Memo memo) {
+		memo.setId(nextId++);
+		memos.add(memo);
+	}
+	
+	public void updateMemo(int id, Memo updateMemo) {
+		Memo memo = memos.get(id);
+		memo.setTitle(updateMemo.getTitle());
+		memo.setDetail(updateMemo.getDetail());
+		
+	}
+	
+	public void deleteMemo(int id) {
+		memos.removeIf(memo -> memo.getId() == id);
+	}
+	
+}

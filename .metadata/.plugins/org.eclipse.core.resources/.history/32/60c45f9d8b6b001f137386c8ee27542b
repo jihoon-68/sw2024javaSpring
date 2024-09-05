@@ -1,0 +1,7 @@
+spring.application.name=myapp-memo
+spring.thymeleaf.prefix=classpath:/templates/
+spring.thymeleaf.suffix=.html
+spring.thymeleaf.mode=HTML
+server.port= 8080
+
+

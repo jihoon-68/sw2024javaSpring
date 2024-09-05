@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>asdasdasdas</h1>
+	<ul>
+		<li th:each ="memo : ${memos}">
+			<a th:text="${memo.title}" th:href="@{/detail/{id}(id=${memo.id})}"></a>
+		</li>
+	</ul>
+</body>
+</html>

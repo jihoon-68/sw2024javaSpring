@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>메모장</h1>
+	<ul>
+		<li th:each ="memo : ${memos}">
+			<a th:text="${memo.title}" th:href="@{/detail/{id}(id=${memo.id})}"></a>
+		</li>
+	</ul>
+	
+	<h1>매모 추가</h1>
+	<form action=/add th:object="${memo}" method="post">
+        <input type="text" id="title" th:field="*{title}" /><br/>
+        <textarea id="detail" th:field="*{detail}"></textarea><br/>
+        <button type="submit">매모 등록</button>
+	</form>
+	
+</body>
+</html>

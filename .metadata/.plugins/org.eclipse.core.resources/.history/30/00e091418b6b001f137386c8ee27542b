@@ -1,0 +1,4 @@
+spring.application.name=myapp-memo
+server.port= 8080
+
+

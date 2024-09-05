@@ -1,0 +1,5 @@
+spring.application.name=myapp-memo
+server.servlet.context-path=/myapp
+server.port= 8080
+
+

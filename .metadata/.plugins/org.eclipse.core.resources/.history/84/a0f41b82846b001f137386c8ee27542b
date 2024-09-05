@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>메모장</h1>
+	<ul>
+		<li th:each =" memo : ${memo}">
+			<a th:text="${memo.title}" th:href="@{/detail/{id}(id=${memo.id})}"></a>
+		</li>
+	</ul>
+	<form th:action=@{/add} th:object="{memo}" method="post">
+	</form>
+</body>
+</html>
